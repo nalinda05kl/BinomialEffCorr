@@ -1,5 +1,5 @@
 {
-  gROOT->ProcessLine(".L BinormEffCorr.h");
-  gROOT->ProcessLine(".L BinormEffCorr.cpp");
-  gROOT->ProcessLine(".L MainBinormEffCorr.cpp");
+  gROOT->ProcessLine(".L BinomEffCorr.h");
+  gROOT->ProcessLine(".L BinomEffCorr.cpp");
+  gROOT->ProcessLine(".L MainBinomEffCorr.cpp");
 }
