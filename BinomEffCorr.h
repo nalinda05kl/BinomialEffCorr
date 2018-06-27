@@ -14,7 +14,7 @@ void DeleteDynamic2DArray(Double_t **, Int_t, TString);
 void CumulantCalc_from_BinomEff_correction(Int_t *, Double_t **);
 void CBWC_CumulantCalc_from_BinomEff_correction(Double_t **, Double_t **, Int_t *, Int_t, Int_t, Int_t, Int_t);
 
-TString InRootFile = "Merged_file_200GeV_FULL_BinormEffCorr_FD15.root";
+TString InRootFile = "\PATH_\TO_\FILE.root";
 
 TString AddName     = ""; // modify in the systematic error calcualtion. Eg: "_DaDb1". For default, leave this blank (ie. like "").
 TString hh_q11      = "h_q11" + AddName;
