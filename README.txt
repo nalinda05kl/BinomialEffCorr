@@ -1,5 +1,5 @@
 This set of codes calculates the efficiency corrected cumulants for a event by event fluctuation analysis.
-Efficiency correction is done by taking the momentum dependency of the reconstruction efficiency as explained
+Efficiency correction is done by taking the momentum dependency of the reconstruction efficiency in to account as explained
 in the  paper: arXiv:1702.07106v3 [physics.data-an] 10 Jun 2017 by T.Nonaka et al.
 
 This readme file is still not completed. So, if you need any help in using these codes plese fell free to email me.
