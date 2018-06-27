@@ -70,7 +70,7 @@ void DeleteDynamic2DArray(Double_t **Array, Int_t rows, TString ArrayName)
 void CumulantCalc_from_BinomEff_correction(Int_t *BinEntriesRefMult, Double_t **CumulantBinorm)
 {
 
-	TFile *LambdaMom_file = new TFile(InRootFile, "read");
+  TFile *LambdaMom_file = new TFile(InRootFile, "read");
 
   TProfile *Histo_q11     = (TProfile*) LambdaMom_file->Get(hh_q11);
   TProfile *Histo_q12     = (TProfile*) LambdaMom_file->Get(hh_q12);
@@ -110,31 +110,31 @@ void CumulantCalc_from_BinomEff_correction(Int_t *BinEntriesRefMult, Double_t **
   	BinEntries = Histo_q11 -> GetBinEntries(RefMultBin);
   	BinEntriesRefMult[RefMultBin] = BinEntries;
 
-    RefMultBinEntries   -> SetBinContent(RefMultBin, BinEntries);
+    	RefMultBinEntries   -> SetBinContent(RefMultBin, BinEntries);
 
   	q12       = Histo_q12   -> GetBinContent(RefMultBin);
-    q13       = Histo_q13   -> GetBinContent(RefMultBin);
-    q21       = Histo_q21   -> GetBinContent(RefMultBin);
-    q22       = Histo_q22   -> GetBinContent(RefMultBin);
-    q23       = Histo_q23   -> GetBinContent(RefMultBin);
-    q31       = Histo_q31   -> GetBinContent(RefMultBin);
-    q32       = Histo_q32   -> GetBinContent(RefMultBin);
-    q33       = Histo_q33   -> GetBinContent(RefMultBin);
-    q11_2     = Histo_q11_2 -> GetBinContent(RefMultBin);
-    q11_3     = Histo_q11_3 -> GetBinContent(RefMultBin);
-    q11_q21   = Histo_q11_q21 -> GetBinContent(RefMultBin);
-    q11_q22   = Histo_q11_q22 -> GetBinContent(RefMultBin);
+    	q13       = Histo_q13   -> GetBinContent(RefMultBin);
+    	q21       = Histo_q21   -> GetBinContent(RefMultBin);
+    	q22       = Histo_q22   -> GetBinContent(RefMultBin);
+    	q23       = Histo_q23   -> GetBinContent(RefMultBin);
+    	q31       = Histo_q31   -> GetBinContent(RefMultBin);
+    	q32       = Histo_q32   -> GetBinContent(RefMultBin);
+    	q33       = Histo_q33   -> GetBinContent(RefMultBin);
+    	q11_2     = Histo_q11_2 -> GetBinContent(RefMultBin);
+    	q11_3     = Histo_q11_3 -> GetBinContent(RefMultBin);
+    	q11_q21   = Histo_q11_q21 -> GetBinContent(RefMultBin);
+    	q11_q22   = Histo_q11_q22 -> GetBinContent(RefMultBin);
 
-    // Calculation of cumulants.
-    C1 = q11;
-    C2 = q11_2 + q21 - q22;
-    C3 = q11_3 + 3*q11_q21 - 3*q11_q22 + q31 - 3*q32 + 2*q33;
+    	// Calculation of cumulants.
+    	C1 = q11;
+    	C2 = q11_2 + q21 - q22;
+    	C3 = q11_3 + 3*q11_q21 - 3*q11_q22 + q31 - 3*q32 + 2*q33;
 
-    //cout << " " << RefMultBin << " \t" << C1 << "     \t" << C2 << "     \t" << BinEntries << endl;
+    	//cout << " " << RefMultBin << " \t" << C1 << "     \t" << C2 << "     \t" << BinEntries << endl;
 
-    CumulantBinorm[RefMultBin][0] = C1;
-    CumulantBinorm[RefMultBin][1] = C2;
-    CumulantBinorm[RefMultBin][2] = C3;
+    	CumulantBinorm[RefMultBin][0] = C1;
+    	CumulantBinorm[RefMultBin][1] = C2;
+    	CumulantBinorm[RefMultBin][2] = C3;
   }
   LambdaMom_file -> Close();
 
@@ -155,8 +155,8 @@ void CBWC_CumulantCalc_from_BinomEff_correction(Double_t **mu, Double_t **cbwc_m
 	if(Type == 0){binLow  = RefMultLow; binHigh = RefMultLow + RefMultBinWidth;}
 	else{binLow  = RefMult3[0]; binHigh = RefMult3[1];}
 
-  Double_t Sum_MU_1 = 0., Sum_MU_2 = 0., Sum_MU_3 = 0.;
-  Double_t Cum_1 = 0., Cum_2 = 0., Cum_3 = 0., Cum_21 = 0., Cum_32 = 0.;
+  	Double_t Sum_MU_1 = 0., Sum_MU_2 = 0., Sum_MU_3 = 0.;
+  	Double_t Cum_1 = 0., Cum_2 = 0., Cum_3 = 0., Cum_21 = 0., Cum_32 = 0.;
 	Int_t eventsSum = 0;
 
 	for(Int_t i = 0; i < CentBins; i++)
@@ -167,32 +167,31 @@ void CBWC_CumulantCalc_from_BinomEff_correction(Double_t **mu, Double_t **cbwc_m
 		{
 			Sum_MU_1 += mu[j][0]*events[j];
 			Sum_MU_2 += mu[j][1]*events[j];
-      Sum_MU_3 += mu[j][2]*events[j];
+      			Sum_MU_3 += mu[j][2]*events[j];
 			eventsSum += events[j];
-
 		}
 		cbwc_mu[i][0] =  Sum_MU_1/eventsSum;
 		cbwc_mu[i][1] =  Sum_MU_2/eventsSum;
-    cbwc_mu[i][2] =  Sum_MU_3/eventsSum;
+    		cbwc_mu[i][2] =  Sum_MU_3/eventsSum;
 
-    Sum_MU_1 = 0.; Sum_MU_2 = 0.; Sum_MU_3 = 0.;
-    Cum_1 = 0.; Cum_2 = 0.; Cum_3 = 0.; Cum_21 = 0.; Cum_32 = 0.;
+    		Sum_MU_1 = 0.; Sum_MU_2 = 0.; Sum_MU_3 = 0.;
+    		Cum_1 = 0.; Cum_2 = 0.; Cum_3 = 0.; Cum_21 = 0.; Cum_32 = 0.;
 		eventsSum = 0;
-    Cum_1   = cbwc_mu[i][0];
-    Cum_2   = (cbwc_mu[i][1] - pow(cbwc_mu[i][0],2));
-    Cum_3   = (2*pow(cbwc_mu[i][0],3) - 3*cbwc_mu[i][0]*cbwc_mu[i][1] + cbwc_mu[i][2]);
-    Cum_21  = Cum_2/Cum_1;
-    Cum_32  = Cum_3/Cum_2;
+    		Cum_1   = cbwc_mu[i][0];
+    		Cum_2   = (cbwc_mu[i][1] - pow(cbwc_mu[i][0],2));
+    		Cum_3   = (2*pow(cbwc_mu[i][0],3) - 3*cbwc_mu[i][0]*cbwc_mu[i][1] + cbwc_mu[i][2]);
+    		Cum_21  = Cum_2/Cum_1;
+    		Cum_32  = Cum_3/Cum_2;
 
 		cout << "\n\tC_1 \t\t= " << Cum_1 << endl;
 		cout << "\tC_2 \t\t= " << Cum_2 << endl;
-    cout << "\tC_3 \t\t= " << Cum_3 << endl;
-    cout << "\tC_2/C_1 \t= " << Cum_21 << endl;
-    cout << "\tC_3/C_2 \t= " << Cum_32 << endl;
+    		cout << "\tC_3 \t\t= " << Cum_3 << endl;
+    		cout << "\tC_2/C_1 \t= " << Cum_21 << endl;
+    		cout << "\tC_3/C_2 \t= " << Cum_32 << endl;
 
 
 		if(Type == 0){binLow  += RefMultBinWidth; binHigh += RefMultBinWidth;}
 		else{binLow  = RefMult3[i+1]; binHigh = RefMult3[i+2];}
 	}
-  cout << "\n    ~~~~~~~~~~~~ CBWC END ~~~~~~~~~~~~" << endl;
+  	cout << "\n    ~~~~~~~~~~~~ CBWC END ~~~~~~~~~~~~" << endl;
 }
