@@ -4,7 +4,7 @@ This set of codes calculates the efficiency corrected cumulants for a event by e
 Efficiency correction is done by taking the momentum dependency of the reconstruction efficiency in to account as explained
 in the  paper: arXiv:1702.07106v3 [physics.data-an] 10 Jun 2017 by T.Nonaka et al.
 
-**So, if you need any help in using these codes please feel free to email**
+**If you need any help in using these codes please feel free to email**
 email: nalinda05kl@gmail.com
 
 Note: Input file should contain the <q(r,s)> TProfile histograms as the input for these set of codes to generate the output.
